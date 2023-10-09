@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: moviesapi-pod
+  labels:
+    app: movies_api
+    type: microservice
+spec:
+  containers:
+    name: moviesapi
+    image: moviesapi:alpine
+    ports:
+      containerPort: 80
+    env:
+      name: MongoDbSetting__ConnectionString
+      value: "mongodb://root:mongodb2020!@mongodb-service:27017"

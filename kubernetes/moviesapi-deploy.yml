@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moviesapi-deploy
+  labels:
+    name: moviesapi-deploy
+    app: movies_api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: movies_api
+      type: microservice
+  template:
+    metadata:
+      name: moviesapi-pod
+      labels:
+        app: movies_api
+        type: microservice
+    spec:
+      containers:
+      - name: moviesapi
+        image: emmanuelcaamal/moviesapi:alpine
+        ports:
+        - containerPort: 80
+        env:
+        - name: MongoDbSetting__ConnectionString
+          value: "mongodb://root:mongodb2020!@mongodb-service:27017"

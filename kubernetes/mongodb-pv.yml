@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongodb-volume
+  labels:
+    app: movies_api
+    type: local
+spec:
+  #We use local node storage here!
+  #kubectl get storageclass #para obtener los proveedores de almacenamiento
+  storageClassName: hostpath
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "c:/database/mongodb"

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deploy
+  labels:
+    name: mongodb-deploy
+    app: movies_api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: movies_api
+      name: mongodb-pod
+  template:
+    metadata:
+      name: mongodb-pod
+      labels:
+        app: movies_api
+        name: mongodb-pod
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:4.2.21
+        # command:
+        # - /bin/bash
+        # - -c
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "root"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "mongodb2020!"
+        ports:
+          - containerPort: 27017

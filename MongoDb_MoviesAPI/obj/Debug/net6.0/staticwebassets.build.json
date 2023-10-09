@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Se3qGVvGveVoBJuQnNej8d+xvF5bs8CQvVWpjHd7XOw=",
+  "Source": "MongoDb_MoviesAPI",
+  "BasePath": "_content/MongoDb_MoviesAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
